@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aula04</title>
+    <script>
+
+        let nota100 = 0
+        let nota50 = 0
+        let nota20 = 0
+        let nota10 = 0
+        let nota5 = 0
+        let nota2 = 0
+        let nota1 = 0
+        
+        let num = prompt("qual seu numero: ");
+        
+        while (num > 0) {
+            while (num >= 100) {
+                nota100++;
+                num -= 100;
+            }
+            while (num >= 50) {
+                nota50++;
+                num -= 50;
+            }
+            while (num >= 20) {
+                nota20++;
+                num -= 20;
+            }
+            while (num >= 10) {
+                nota10++;
+                num -= 10;
+            }
+            while (num >= 5) {
+                nota5++;
+                num -= 5;
+            }
+            while (num >= 2) {
+                nota2++;
+                num -= 2;
+            }  
+            while (num >= 1) {
+                nota1++;
+                num -= 1;
+            }
+        }
+                
+        alert('Notas de 100: ' + nota100 + '\n' +
+              'Notas de 50: ' + nota50 + '\n' +
+              'Notas de 20: ' + nota20 + '\n' +
+              'Notas de 10: ' + nota10 + '\n' +
+              'Notas de 5: ' + nota5 + '\n' +
+              'Notas de 2: ' + nota2 + '\n' +
+              'Notas de 1: ' + nota1 + '\n');
+    </script>
+</head>
+<body>
+    <h2>Exercicio 14</h2>
+    <p>14. Caixa Eletrônico</p>
+    <p>Peça um valor ao usuário e informe as possíveis cédulas para saque (100, 50, 20, 10, 5, 2, 1).</p>
+</body>
+</html>
