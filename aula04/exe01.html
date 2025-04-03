@@ -3,24 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>aula04</title>
+    <title>aula05</title>
     <script>
+        var nota = prompt("Qual sua nota (0 a 10): ");
         
-        var nota = prompt("qual sua nota: ");
-        
-        if (nota >= 7 && nota <= 10) {
-            alert("Aprovado");
-        } else if (nota < 7 && nota >= 5) {
-            alert("Recuperação");
-        } else if (nota < 5) {
-            alert("Reprovado");
+        if (nota !== null && !isNaN(nota) {
+            nota = parseFloat(nota);
+            if (nota >= 0 && nota <= 10) {
+                if (nota >= 7) {
+                    alert("Aprovado");
+                } else if (nota >= 5) {
+                    alert("Recuperação");
+                } else {
+                    alert("Reprovado");
+                }
+            } else {
+                alert("Nota inválida. Digite um número entre 0 e 10");
+            }
         } else {
-            alert("Nota inválida");
+            alert("Entrada inválida. Digite um número.");
         }
-                
     </script>
 </head>
 <body>
-    <p>Exercicio 1</p>
+    <p>Exercício 1</p>
 </body>
 </html>
