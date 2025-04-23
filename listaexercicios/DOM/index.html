@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>funcao e DOM</title>
+    <style>
+        body {
+          font-family: 'Segoe UI';
+          background: #f0f4f8;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 90vh;
+        }
+    
+        .container {
+          background: #ffffff;
+          padding: 30px;
+          border-radius: 15px;
+          align-items: center;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+          width: 30%;
+        }
+    
+        h2 {
+          text-align: center;
+          color: #2c3e50;
+        }
+    
+        .botao {
+          width: 100%;
+          padding: 15px;
+          background: #4caf50;
+          border: none;
+          color: white;
+          font-size: 16px;
+          font-weight: bold;
+          border-radius: 10px;
+          cursor: pointer;
+        }
+
+        .campos{
+            width: 92%;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        #resultado {
+            margin-top: 30px;
+            font-size: 18px;
+            color: #34495e;
+            font-weight: bold;
+        }
+
+        .campos:focus {
+        outline: none;
+        border-color: #4caf50;
+        }
+    
+      </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Calculadora de IMC</h2>
+
+        <p><input class="campos" type="number" id="peso" required placeholder="Digite o peso (Em Kg)"></p>
+        <p><input class="campos" type="number" id="altura" required placeholder="Digite a altura (Em Metro)"></p>
+    
+        <button class="botao" onclick="mostrarResultado()">Calcular IMC</button>
+    
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        function calcularIMC(peso, altura) {
+            return peso / (altura * altura);
+        }
+
+        function mostrarResultado() {
+            const peso = parseFloat(document.getElementById('peso').value);
+            const altura = parseFloat(document.getElementById('altura').value);
+            const resultado = document.getElementById('resultado');
+            const imc = calcularIMC(peso, altura).toFixed(2);
+            let classificacao = '';
+
+            switch (true) {
+                case (imc < 18.5):
+                classificacao = 'Abaixo do peso';
+                break;
+                case (imc < 25):
+                classificacao = 'Peso normal';
+                break;
+                case (imc < 30):
+                classificacao = 'Sobrepeso';
+                break;
+                case (imc < 35):
+                classificacao = 'Obesidade grau I';
+                break;
+                case (imc < 40):
+                classificacao = 'Obesidade grau II';
+                break;
+                default:
+                console.log('imc', imc);
+                
+                classificacao = 'Obesidade grau III';
+            }
+
+            if (isNaN(peso) || isNaN(altura) || peso <= 0 || altura <= 0) {
+                resultado.textContent = 'Por favor, insira valores válidos.';
+                return;
+            }
+
+            resultado.textContent = `Seu IMC é ${imc} (${classificacao}).`;
+        }
+    </script>
+</body>
+</html>
